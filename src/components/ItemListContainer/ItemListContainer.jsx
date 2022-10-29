@@ -1,10 +1,11 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import "./ItemListContainer.css"
 
-function ItemListContainer({saludo="¡Bienvenido a mi e-commerce!"}) {
+function ItemListContainer({greeting}) {
   return (
     <div className='saludo'>
-        <p>{saludo}</p>
+        <p>{greeting}</p>
     </div>
   )
 }

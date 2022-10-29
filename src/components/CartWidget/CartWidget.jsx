@@ -1,5 +1,5 @@
 import React from 'react'
-import carrito from "../assets/carrito.png"
+import carrito from "../../../img/carrito.png"
 
 
 function CartWidget() {
