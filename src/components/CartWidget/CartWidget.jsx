@@ -1,10 +1,9 @@
 import React from 'react'
-import carrito from "../../../img/carrito.png"
-
+import { GrCart } from "react-icons/gr";
 
 function CartWidget() {
   return (
-    <a href=""><img src={carrito} alt="Logo carrito" /></a>
+    <a href=""><GrCart fontSize={30}/></a>
   )
 }
 

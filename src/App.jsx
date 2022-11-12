@@ -1,22 +1,70 @@
 import './App.css'
+
 import NavBar from "./components/NavBar/NavBar"
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import LogoWidget from './components/LogoWidget/LogoWidget'
+import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer"
+import Cart from "./pages/Cart/Cart"
+
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+
 
 function App() {
 
   return (
-    <div>
-      <header>
-        <LogoWidget/>
-        <NavBar titulo= "E-commerce" list1="INICIO" list2="GORRAS" list3="REMERAS" list4="CAMISAS" list5="ZAPATILLAS"/>
-      </header>
-      <section id='ItemListContainer'>
-        <ItemListContainer greeting="¡Bienvenido a mi e-commerce!"/>
-      </section>
-    </div>
+    <BrowserRouter>
+        <NavBar/>
+    <Routes>
+      <Route path="/" element={<ItemListContainer/>}/>
+      <Route path="/categoria/categoriaId" element={<ItemListContainer/>}/>
+      <Route path="/detail/:productId" element={<ItemDetailContainer/>}/>
+      <Route path="/cart" element={<Cart/>}/>
+
+      <Route path ="*" element={<Navigate to="/"/>}/>
+    </Routes>
+    </BrowserRouter>
 
   )
 }
 
 export default App
+
+
+/*
+import * as React from 'react';
+import { useEffect, useState } from 'react';
+import './style.css';
+
+export default function App() {
+  const [pokemons, setResult] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const url = 'https://pokeapi.co/api/v2/ability/?limit=20&offset=20';
+
+  useEffect(() => {
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((data) => {
+        setLoading(false);
+        setResult(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  return loading ? (
+    <h2>Cargando...</h2>
+  ) : (
+    <div>
+      <h1>ItemListContainer</h1>
+      {pokemons.map((obj) => (
+        <div key={obj.id}>
+          <div>{obj.name}</div>
+          <div>
+            <img src={obj.foto} />
+          </div>
+          <div>precio : {obj.price}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+*/

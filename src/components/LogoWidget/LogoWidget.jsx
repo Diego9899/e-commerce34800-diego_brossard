@@ -1,6 +1,7 @@
 import React from 'react'
-import logoEcommerce from "../../../img/logoEcommerce.png"
+import logoEcommerce from "../../../img/Logo.png"
 import "../LogoWidget/LogoWidget.css"
+
 
 const LogoWidget = () => {
   return (

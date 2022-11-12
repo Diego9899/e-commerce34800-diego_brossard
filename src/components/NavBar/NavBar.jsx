@@ -1,27 +1,30 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
+import LogoWidget from '../LogoWidget/LogoWidget'
 import "./NavBar.css"
 
 
-function NavBar ({titulo, list1, list2, list3, list4, list5}) {
+function NavBar () {
   return (
-    <div className='containerNavBar'>
+    <header className='containerNavBar'>
+      <LogoWidget/>
       <div className='navBarTitulo'>
-        <a href="#inicio"><h2>{titulo}</h2></a>
+        <Link to="/"><p>BLACK</p> <p>WHITE</p></Link>
       </div>
       <div className='containerNavBarList'>
         <ul className='navBarList'>
-            <li><a href="#list1">{list1}</a></li>
-            <li><a href="#list2">{list2}</a></li>
-            <li><a href="#list3">{list3}</a></li>
-            <li><a href="#list4">{list4}</a></li>
-            <li><a href="#list5">{list5}</a></li>
+            <li><Link to="/ItemListContainer">Inicio</Link></li>
+            <li><Link to="/categoria/gorras">Gorras</Link></li>
+            <li><Link to="/categoria/remeras">Remeras</Link></li>
+            <li><Link to="/categoria/zapatillas">Zapatillas</Link></li>
+            <li><Link to="/contacto">Contacto</Link></li>
         </ul>
       </div>
       <div id='navBarIcono'>
-        <CartWidget/>
+        <Link to="/Cart"><CartWidget/></Link>
       </div>
-    </div>
+    </header>
   )
 }
 export default NavBar
