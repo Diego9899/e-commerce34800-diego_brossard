@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { GrCart } from "react-icons/gr";
 
 function CartWidget() {
   return (
-    <a href=""><GrCart fontSize={30}/></a>
+    <GrCart fontSize={30}/>
   )
 }
 

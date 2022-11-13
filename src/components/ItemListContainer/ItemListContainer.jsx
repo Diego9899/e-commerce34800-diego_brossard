@@ -6,7 +6,7 @@ import ItemList from '../ItemList/ItemList'
 // ---------- CSS
 import "./ItemListContainer.css"
 
-const ItemListContainer = (obj) =>{
+const ItemListContainer = (listaproductos) =>{
   const[productos, setProductos] = useState([])
   const[cargando, setCargando] = useState(true)
   const {categoriaId} = useParams()
@@ -14,7 +14,7 @@ const ItemListContainer = (obj) =>{
   useEffect(()=> {
     if (categoriaId) {
         getFetch()
-        .then(resp =>  setProductos(resp.filter(prod => prod.categoria === categoriaId)))    
+        .then(resp =>  setProductos(resp.filter(producto => producto.categoria === categoriaId)))    
         .catch(err => console.log(err))
         .finally(()=>setCargando(false))     
     }else{
