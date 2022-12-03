@@ -6,31 +6,28 @@ import ItemList from '../ItemList/ItemList'
 // ---------- CSS
 import "./ItemListContainer.css"
 
-const ItemListContainer = (listaproductos) =>{
-  const[productos, setProductos] = useState([])
-  const[cargando, setCargando] = useState(true)
-  const {categoriaId} = useParams()
+const ItemListContainer = (productlist) =>{
+  const[product, setProduct] = useState([])
+  const[loading, setLoading] = useState(true)
+  const {categoryId} = useParams()
 
   useEffect(()=> {
-    if (categoriaId) {
+    if (categoryId) {
         getFetch()
-        .then(resp =>  setProductos(resp.filter(producto => producto.categoria === categoriaId)))    
+        .then(resp =>  setProduct(resp.filter(product => product.category === categoryId)))    
         .catch(err => console.log(err))
-        .finally(()=>setCargando(false))     
+        .finally(()=>setLoading(false))     
     }else{
         getFetch()
-        .then(resp =>  setProductos(resp))    
+        .then(resp =>  setProduct(resp))    
         .catch(err => console.log(err))
-        .finally(()=>setCargando(false)) 
+        .finally(()=>setLoading(false)) 
     }  
-}, [categoriaId])
-
+}, [categoryId])
 
   return(
-    cargando ? <h2 className='cargando'>Cargando...</h2> : 
-    
     <div className='ItemListContainer'> 
-      <ItemList productos={productos} />
+       {loading ? <h2 className='cargando'>Cargando...</h2> : <ItemList product={product} /> }
     </div>
 
   )

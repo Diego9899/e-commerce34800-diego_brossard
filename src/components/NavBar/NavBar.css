@@ -59,14 +59,8 @@
 
     transition: all ease 300ms;
 }
-/* 
-  background-image: 
-  linear-gradient(to top, rgb(230, 230, 230) 25%, transparent 25%, transparent 75%, rgb(230, 230, 230) 75%,rgb(230, 230, 230)),
-  linear-gradient(to right, #c2c2c2 25%, transparent 25%, transparent 75%,#c2c2c2 75%,#c2c2c2);
-  background-size: 10px 10px;
-  background-position: 0 0; 
-  */
 
+/* Media queries */
 @media(max-width: 1085px){
     .navBarTitulo a h2{font-size: 20px}
     .containerNavBarList .navBarList{flex-direction: column; width: 100%;}

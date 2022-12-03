@@ -1,11 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCartContext } from '../../context/cartContext'
 import CartWidget from '../CartWidget/CartWidget'
 import LogoWidget from '../LogoWidget/LogoWidget'
 import "./NavBar.css"
 
 
 function NavBar () {
+
+  const {totalQuantity} = useCartContext()
+
   return (
     <header className='containerNavBar'>
       <LogoWidget/>
@@ -23,6 +27,7 @@ function NavBar () {
       </div>
       <div id='navBarIcono'>
         <Link to="/Cart"><CartWidget/></Link>
+        {totalQuantity()!== 0 && totalQuantity()}
       </div>
     </header>
   )

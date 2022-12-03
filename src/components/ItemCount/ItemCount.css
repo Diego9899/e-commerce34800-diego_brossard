@@ -1,25 +1,33 @@
-.itemCount {
-    width: 100%;
+.itemCountContainer {
+    width: 30%;
+    height: auto;
+    
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+}
+.itemCountContainer .itemCountButton{
     display: flex;
     flex-direction: row;
-
-    justify-content: space-around;
 }
-
-
-
-.itemCount button{
+.itemCountContainer button{
     border-color: black;
     background-color: white;
+
+    padding: 5px 10px;
 }
-
-
-
-.itemCount button:Hover{
+.itemCountContainer button:Hover{
     padding: 10px;
 
     color: white;
     background-color: black;
 
     transition: all ease 300ms;
+}
+.itemCountContainer .itemCountAdd{
+}
+
+.itemCountContainer .itemCountAdd button{
+
 }

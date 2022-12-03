@@ -25,10 +25,10 @@
   height: 100vh;
 }
 
-/* @media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #ffff;
+    background-color: #213547;
   }
   a:hover {
     color: #747bff;
