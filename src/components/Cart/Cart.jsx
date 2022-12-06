@@ -1,4 +1,5 @@
 import { useCartContext } from "../../context/cartContext"
+import "./Cart.css";
 
 const Cart = () => {
 
@@ -12,11 +13,12 @@ const Cart = () => {
     }
     // -----------------------------------------------------
     return (
-      <div>
+      <div className="cartContainer">
         <h1>Carrito</h1>
         <ul>
           {cartList.map((product) => 
-          <li key={product.id}> 
+          <li className="cartData" key={product.id}> 
+            <img src={product.urlimg} alt="Imagen del producto" />
             Nombre: {product.name} - 
             Cantidad: {product.quantity} 
             <button onClick={ ()=> removeItemCart(product.id)}>X</button> 

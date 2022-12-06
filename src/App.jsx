@@ -8,6 +8,7 @@ import Cart from "./components/Cart/Cart";
 import CartContextProvider from "./context/cartContext";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
+
 function App() {
   return (
     <BrowserRouter>
