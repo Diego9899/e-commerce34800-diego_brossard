@@ -6,7 +6,7 @@ import {
   collection,
   getDocs,
   query,
-  where
+  where,
 } from "firebase/firestore";
 import ItemList from "../ItemList/ItemList";
 import Banner from "../Banner/Banner";
@@ -22,22 +22,23 @@ const ItemListContainer = () => {
     const db = getFirestore();
     const queryCollection = collection(db, "products");
     if (categoryId) {
-        let queryFilter = query(queryCollection, where("category","==", categoryId))
-        getDocs(queryFilter)
-          .then((resp) =>
-            setProduct(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
-          )
-          .catch((err) => console.log(err))
-          .finally(() => setLoading(false))
-          .then((doc) => setProduct({ id: doc.id, ...doc.data() }));
+      let queryFilter = query(
+        queryCollection,
+        where("category", "==", categoryId)
+      );
+      getDocs(queryFilter)
+        .then((resp) =>
+          setProduct(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
     } else {
-        getDocs(queryCollection)
-          .then((resp) =>
-            setProduct(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
-          )
-          .catch((err) => console.log(err))
-          .finally(() => setLoading(false))
-          .then((doc) => setProduct({ id: doc.id, ...doc.data() }));
+      getDocs(queryCollection)
+        .then((resp) =>
+          setProduct(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
     }
   }, [categoryId]);
 
@@ -46,7 +47,10 @@ const ItemListContainer = () => {
       {loading ? (
         <h2 className="cargando">Cargando...</h2>
       ) : (
-         <> <Banner/> <ItemList product={product} /></>
+        <>
+          {" "}
+          <Banner /> <ItemList product={product} />
+        </>
       )}
     </div>
   );

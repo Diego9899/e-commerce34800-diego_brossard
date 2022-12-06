@@ -47,3 +47,24 @@
     width: 100%;
     margin-bottom: 5px;
 }
+/* Botones */
+
+.detailContainer div button{
+        border-color: black;
+        background-color: white;
+    
+        padding: 5px 10px
+}
+.detailContainer div button a{
+    color: black;
+}
+.detailContainer div button:Hover{
+    padding: 10px;
+    background-color: black;
+
+    transition: all ease 300ms;
+}
+.detailContainer div button a:Hover{
+    color: white;
+
+}

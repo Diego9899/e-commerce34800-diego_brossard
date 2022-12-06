@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
 import ItemCount from "../ItemCount/ItemCount";
-import {GrMoney} from "react-icons/gr";
+import { GrMoney } from "react-icons/gr";
 // CSS
 import "./ItemDetail.css";
 
@@ -22,16 +22,22 @@ const ItemDetail = ({ product }) => {
           <img src={product.urlimg} />
           <div className="detailData">
             <div className="detailDataTitle">{product.name}</div>
-            <div className="detailDataPrice"><GrMoney/> ${product.price}</div>
+            <div className="detailDataPrice">
+              <GrMoney /> ${product.price}
+            </div>
             <div className="detailDataStock">Disponibles: {product.stock}</div>
             <div className="detailDataDescription">{product.description}</div>
           </div>
           {isCounter ? (
-            <ItemCount initial={1} onAdd={onAdd} />
+            <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
           ) : (
             <div>
-              <Link to="/Cart">Terminar compra</Link>
-              <Link to="/">Seguir comprando</Link>
+              <button>
+                <Link to="/Cart">Terminar compra</Link>
+              </button>
+              <button>
+                <Link to="/">Seguir comprando</Link>
+              </button>
             </div>
           )}
         </div>
